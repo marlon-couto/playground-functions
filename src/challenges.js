@@ -12,15 +12,18 @@ function compareTrue(param1, param2) {
 // Desafio 2
 function calcArea(base, height) {
   // seu código aqui
-  return base * height / 2;
+  return (base * height) / 2;
 }
 
 // console.log(calcArea(51, 1));
 
 // Desafio 3
-function splitSentence() {
+function splitSentence(string) {
   // seu código aqui
+  return string.split(' ');
 }
+
+// console.log(splitSentence('go Trybe'));
 
 // Desafio 4
 function concatName() {
