@@ -111,12 +111,47 @@ function fizzBuzz(array) {
 // console.log(fizzBuzz([2, 15, 7, 9, 45]));
 
 // Desafio 9
-function encode() {
+function encode(string) {
   // seu código aqui
+  let codedString = string.split('');
+
+  for (let index = 0; index < codedString.length; index += 1) {
+    if (codedString[index] === 'a') {
+      codedString[index] = '1';
+    } else if (codedString[index] === 'e') {
+      codedString[index] = '2';
+    } else if (codedString[index] === 'i') {
+      codedString[index] = '3';
+    } else if (codedString[index] === 'o') {
+      codedString[index] = '4';
+    } else if (codedString[index] === 'u') {
+      codedString[index] = '5';
+    }
+  }
+  return codedString.join('');
 }
-function decode() {
+function decode(string) {
   // seu código aqui
+  let codedString = string.split('');
+
+  for (let index = 0; index < codedString.length; index += 1) {
+    if (codedString[index] === '1') {
+      codedString[index] = 'a';
+    } else if (codedString[index] === '2') {
+      codedString[index] = 'e';
+    } else if (codedString[index] === '3') {
+      codedString[index] = 'i';
+    } else if (codedString[index] === '4') {
+      codedString[index] = 'o';
+    } else if (codedString[index] === '5') {
+      codedString[index] = 'u';
+    }
+  }
+  return codedString.join('');
 }
+
+// console.log(encode('go Trybe!'));
+// console.log(decode('g4 Tryb2!'));
 
 // Desafio 10
 function techList() {
