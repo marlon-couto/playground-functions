@@ -36,20 +36,51 @@ function concatName(stringArray) {
 // Desafio 5
 function footballPoints(wins, ties) {
   // seu código aqui
-  return (wins * 3) + ties;
+  return wins * 3 + ties;
 }
 
 // console.log(footballPoints(14, 8));
 
 // Desafio 6
-function highestCount() {
+function highestCount(array) {
   // seu código aqui
+  let highestNumber = array[0];
+  let counter = 0;
+
+  for (let index = 0; index < array.length; index += 1) {
+    if (array[index] > highestNumber) {
+      highestNumber = array[index];
+    }
+  }
+
+  for (let index = 0; index < array.length; index += 1) {
+    if (array[index] === highestNumber) {
+      counter += 1;
+    }
+  }
+
+  return counter;
 }
 
+// console.log(highestCount([-2, -2, -1]));
+
 // Desafio 7
-function catAndMouse() {
+function catAndMouse(mouse, cat1, cat2) {
   // seu código aqui
+  let nearestCat = null;
+
+  if (cat1 - mouse < cat2 - mouse) {
+    nearestCat = 'cat1';
+  } else if (cat1 - mouse > cat2 - mouse) {
+    nearestCat = 'cat2';
+  } else {
+    nearestCat = 'os gatos trombam e o rato foge';
+  }
+
+  return nearestCat;
 }
+
+// console.log(catAndMouse(1, 0, 2));
 
 // Desafio 8
 function fizzBuzz() {
