@@ -34,9 +34,12 @@ function concatName(stringArray) {
 // console.log(concatName(['Lucas', 'Cassiano', 'Ferraz', 'Paolillo']));
 
 // Desafio 5
-function footballPoints() {
+function footballPoints(wins, ties) {
   // seu código aqui
+  return (wins * 3) + ties;
 }
+
+// console.log(footballPoints(14, 8));
 
 // Desafio 6
 function highestCount() {
