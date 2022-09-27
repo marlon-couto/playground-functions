@@ -84,12 +84,31 @@ function catAndMouse(mouse, cat1, cat2) {
   return nearestCat;
 }
 
-console.log(catAndMouse(1, 0, 2));
+// console.log(catAndMouse(1, 0, 2));
 
 // Desafio 8
-function fizzBuzz() {
+function fizzBuzz(array) {
   // seu código aqui
+  let resultArray = [];
+
+  for (let index = 0; index < array.length; index += 1) {
+    let resultString = '';
+
+    if (array[index] % 3 === 0 && array[index] % 5 === 0) {
+      resultString = 'fizzBuzz';
+    } else if (array[index] % 3 === 0 && array[index] % 5 !== 0) {
+      resultString = 'fizz';
+    } else if (array[index] % 5 === 0) {
+      resultString = 'buzz';
+    } else {
+      resultString = 'bug!';
+    }
+    resultArray.push(resultString);
+  }
+  return resultArray;
 }
+
+// console.log(fizzBuzz([2, 15, 7, 9, 45]));
 
 // Desafio 9
 function encode() {
