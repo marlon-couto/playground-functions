@@ -80,7 +80,33 @@ function triangleCheck(lineA, lineB, lineC) {
 }
 
 // Desafio 13
-function hydrate() {}
+function getIntegers(string) {
+  let integers = '';
+  let total = 0;
+
+  for (let index = 0; index < string.length; index += 1) {
+    if (
+      string[index].charCodeAt() - '0'.charCodeAt() >= 0
+      && string[index].charCodeAt() - '0'.charCodeAt() <= 9
+    ) {
+      integers += string[index];
+    } else {
+      total += Number(integers);
+      integers = '';
+    }
+  }
+  total += Number(integers);
+
+  return total;
+}
+
+function hydrate(string) {
+  let glasses = getIntegers(string);
+  if (glasses > 1) {
+    return `${glasses} copos de água`;
+  }
+  return '1 copo de água';
+}
 
 module.exports = {
   generatePhoneNumber,
