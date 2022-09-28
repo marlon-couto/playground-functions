@@ -154,9 +154,24 @@ function decode(string) {
 // console.log(decode('g4 Tryb2!'));
 
 // Desafio 10
-function techList() {
+function techList(array, string) {
   // seu código aqui
+  let techArray = [];
+  let sortedArray = array.sort();
+
+  if (array.length === 0) {
+    return 'Vazio!';
+  }
+  for (let index = 0; index < sortedArray.length; index += 1) {
+    techArray.push({
+      tech: sortedArray[index],
+      name: string,
+    });
+  }
+  return techArray;
 }
+
+console.log(techList(['React', 'Jest', 'HTML', 'CSS', 'JavaScript'], 'Lucas'));
 
 module.exports = {
   calcArea,
