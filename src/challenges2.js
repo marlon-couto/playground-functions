@@ -1,55 +1,60 @@
 // Desafio 11
-function generatePhoneNumber(array) {
-  // seu código aqui
-  let isValid = true;
-  let phoneNumber = '';
-
-  if (array.length !== 11) {
-    isValid = false;
+function invalidDigit(number) {
+  if (number > 9 || number < 0) {
+    return true;
   }
+  return false;
+}
+
+function tooManyTimes(array, indexOfLoop, number) {
+  let counter = 1;
+
+  for (let index = indexOfLoop + 1; index < array.length; index += 1) {
+    if (number === array[index]) {
+      counter += 1;
+    }
+    if (counter > 2) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function validArray(array) {
   for (let index = 0; index < array.length; index += 1) {
-    let counter = 0;
-
-    if (array[index] > 9 || array[index] < 0) {
-      isValid = false;
-      break;
-    }
-
-    for (
-      let secondIndex = index;
-      secondIndex < array.length;
-      secondIndex += 1
-    ) {
-      if (array[secondIndex] === array[index]) {
-        counter += 1;
-      }
-      if (counter > 2) {
-        isValid = false;
-        break;
-      }
+    let firstCheck = invalidDigit(array[index]);
+    let secondCheck = tooManyTimes(array, index, array[index]);
+    if (firstCheck === true || secondCheck === true) {
+      return false;
     }
   }
+  return true;
+}
+
+function generatePhoneNumber(arr) {
+  let phoneNumber = '';
+  let isValid = true;
+
+  if (arr.length !== 11) {
+    return 'Array com tamanho incorreto.';
+  }
+  isValid = validArray(arr);
 
   if (isValid === false) {
-    return 'Array com tamanho incorreto';
-  } else {
-    phoneNumber += `(${array[0]}${array[1]}) ${array[2]}${array[3]}${array[4]}`;
-    phoneNumber += `${array[5]}${array[6]}-${array[7]}${array[8]}${array[9]}${array[10]}`;
-    return phoneNumber;
+    return 'não é possível gerar um número de telefone com esses valores';
   }
-}
+  phoneNumber += `(${arr[0]}${arr[1]}) `;
+  phoneNumber += `${arr[2]}${arr[3]}${arr[4]}${arr[5]}${arr[6]}`;
+  phoneNumber += `-${arr[7]}${arr[8]}${arr[9]}${arr[10]}`;
 
-// console.log(generatePhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1]));
+  return phoneNumber;
+}
 
 // Desafio 12
-function triangleCheck() {
-  // seu código aqui
-}
+function triangleCheck() {}
 
 // Desafio 13
-function hydrate() {
-  // seu código aqui
-}
+function hydrate() {}
 
 module.exports = {
   generatePhoneNumber,
