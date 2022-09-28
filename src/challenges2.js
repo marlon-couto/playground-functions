@@ -51,7 +51,33 @@ function generatePhoneNumber(arr) {
 }
 
 // Desafio 12
-function triangleCheck() {}
+function smallerThanOthers(lineA, lineB, lineC) {
+  if (lineA > lineB + lineC || lineB > lineA + lineC || lineC > lineA + lineB) {
+    return false;
+  }
+  return true;
+}
+
+function greaterThanDifference(lineA, lineB, lineC) {
+  if (
+    lineA > Math.abs(lineB - lineC)
+    || lineB > Math.abs(lineA - lineC)
+    || lineC > Math.abs(lineB - lineA)
+  ) {
+    return true;
+  }
+  return false;
+}
+
+function triangleCheck(lineA, lineB, lineC) {
+  let check1 = smallerThanOthers(lineA, lineB, lineC);
+  let check2 = greaterThanDifference(lineA, lineB, lineC);
+
+  if (check1 === true && check2 === true) {
+    return true;
+  }
+  return false;
+}
 
 // Desafio 13
 function hydrate() {}
