@@ -96,41 +96,82 @@ function fizzBuzz(array) {
 }
 
 // Desafio 9
+function isVowel(char) {
+  let vowels = ['a', 'e', 'i', 'o', 'u'];
+
+  for (let index = 0; index < vowels.length; index += 1) {
+    if (char === vowels[index]) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function encodeChar(char) {
+  let encodedChar = '';
+  if (char === 'a') {
+    encodedChar = '1';
+  } else if (char === 'e') {
+    encodedChar = '2';
+  } else if (char === 'i') {
+    encodedChar = '3';
+  } else if (char === 'o') {
+    encodedChar = '4';
+  } else {
+    encodedChar = '5';
+  }
+  return encodedChar;
+}
+
 function encode(string) {
   let codedString = string.split('');
 
   for (let index = 0; index < codedString.length; index += 1) {
-    if (codedString[index] === 'a') {
-      codedString[index] = '1';
-    } else if (codedString[index] === 'e') {
-      codedString[index] = '2';
-    } else if (codedString[index] === 'i') {
-      codedString[index] = '3';
-    } else if (codedString[index] === 'o') {
-      codedString[index] = '4';
-    } else if (codedString[index] === 'u') {
-      codedString[index] = '5';
+    let validChar = isVowel(codedString[index]);
+    if (validChar === true) {
+      codedString[index] = encodeChar(codedString[index]);
     }
   }
   return codedString.join('');
 }
-function decode(string) {
-  let codedString = string.split('');
 
-  for (let index = 0; index < codedString.length; index += 1) {
-    if (codedString[index] === '1') {
-      codedString[index] = 'a';
-    } else if (codedString[index] === '2') {
-      codedString[index] = 'e';
-    } else if (codedString[index] === '3') {
-      codedString[index] = 'i';
-    } else if (codedString[index] === '4') {
-      codedString[index] = 'o';
-    } else if (codedString[index] === '5') {
-      codedString[index] = 'u';
+function isNumber(char) {
+  let numbers = ['1', '2', '3', '4', '5'];
+
+  for (let index = 0; index < numbers.length; index += 1) {
+    if (char === numbers[index]) {
+      return true;
     }
   }
-  return codedString.join('');
+  return false;
+}
+
+function decodeChar(char) {
+  let decodedChar = '';
+  if (char === '1') {
+    decodedChar = 'a';
+  } else if (char === '2') {
+    decodedChar = 'e';
+  } else if (char === '3') {
+    decodedChar = 'i';
+  } else if (char === '4') {
+    decodedChar = 'o';
+  } else {
+    decodedChar = 'u';
+  }
+  return decodedChar;
+}
+
+function decode(string) {
+  let decodedString = string.split('');
+
+  for (let index = 0; index < decodedString.length; index += 1) {
+    let validChar = isNumber(decodedString[index]);
+    if (validChar === true) {
+      decodedString[index] = decodeChar(decodedString[index]);
+    }
+  }
+  return decodedString.join('');
 }
 
 // Desafio 10
